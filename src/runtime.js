@@ -19,8 +19,9 @@ module.exports = {
         // Send to the event loop too see how heavy the load is on the CPU
         setTimeout(() => {
             let end = new Date().getTime();
-            console.log(end - start);
-            console.log('If there is a large difference between ')
+            console.log('start:', start);
+            console.log('end:', end)
+            console.log('system runtime:', end - start, 'ms');
         }, 0)
         let end = start;
 
@@ -34,7 +35,7 @@ module.exports = {
             system++;
             end = new Date().getTime();
         }
-        console.log('this is the systems counter', system)
-        return system;
+        console.log(`clocktime: ${clockTime} ms`);
+        console.log('system Iteration:', system);
     }
 }
