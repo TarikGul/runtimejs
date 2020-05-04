@@ -4,4 +4,4 @@ const runtime = require('./runtime');
 module.exports = {
     memory,
     runtime
-}
+};
