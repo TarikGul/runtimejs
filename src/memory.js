@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
     memoryUsage: function(callback, options) {
         callback;
         const used = process.memoryUsage();

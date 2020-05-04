@@ -1,19 +1,53 @@
-const { performance } = require('perf_hooks');
+const { memory, runtime } = require('../src/index')
 
-module.exports = {
-    memoryUsage: function(callback) {
-        callback;
-        const used = process.memoryUsage();
-        for (let key in used) {
-            console.log(`Memory(${key}): ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`);
-        }
-    },
-    executionTime: function(callback) {
-        let start = performance.now();
 
-        callback;
+// Testing merge sort
+function mergeSort(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
 
-        let end = performance.now();
-        console.log(`Runtime: ${end - start}`);
-    },
+    const mid = Math.floor(arr.length / 2);
+
+    let leftArr = arr.slice(0, mid);
+    let rightArr = arr.slice(mid);
+
+    let left = mergeSort(leftArr)
+    let right = mergeSort(rightArr)
+
+    return merge(left, right);
 }
+
+function merge(left, right) {
+    let merged = [];
+
+    while (left.length && right.length != 0) {
+        if (left[0] > right[0]) {
+            merged.push(right.shift());
+        }
+        else {
+            merged.push(left.shift());
+        }
+    }
+    return merged.concat(left).concat(right)
+}
+
+
+
+function populateArray(n) {
+    const array = []
+
+    for (let i = 0; i < n; i++) {
+        const random = Math.floor((Math.random() * 1000) + 1);
+        array.push(random);
+    }
+
+    return array
+}
+
+
+const randomArray = populateArray(100000);
+// console.log(randomArray)
+console.log(memory.memoryUsage(mergeSort(randomArray)))
+console.log(runtime.systemRuntime(100))
+// console.log(mergeSort(randomArray));
