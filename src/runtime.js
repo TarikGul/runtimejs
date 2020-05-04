@@ -1,16 +1,10 @@
-const runtime = require('../test/test');
+module.exports = {
+    executionTime: function (callback) {
+        let start = performance.now();
 
-const isPrime = num => {
-    if (num < 2) {
-        return false
-    }
-    for (let i = 2; i < Math.round(Math.sqrt(num)); i++) {
-        if (num % i === 0) {
-            return false
-        }
-    }
-    return true
+        callback;
+
+        let end = performance.now();
+        console.log(`Runtime: ${end - start}`);
+    },
 }
-
-console.log(runtime.memoryUsage(isPrime(11)))
-console.log(runtime.executionTime(isPrime(11)))
