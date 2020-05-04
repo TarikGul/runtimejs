@@ -6,10 +6,11 @@ module.exports = {
         // Therefore is not the most reliable way to find a system runtime.
         let start = performance.now();
 
-        callback;
+        callback();
 
         let end = performance.now();
-        console.log(`Runtime: ${end - start}ms`);
+
+        console.log(`Performance Runtime: ${end - start}ms`);
     },
     systemRuntime: function(clockTime) {
         let system = 0;
@@ -20,8 +21,7 @@ module.exports = {
         // This will give us a second reference for system runtime
         setTimeout(() => {
             let end = new Date().getTime();
-            console.log('start:', start);
-            console.log('end:', end);
+
             console.log('system runtime:', end - start, 'ms');
         }, 0)
         let end = start;
@@ -38,7 +38,8 @@ module.exports = {
             system++;
             end = new Date().getTime();
         }
+
         console.log(`clocktime: ${clockTime} ms`);
-        console.log('system Iteration:', system);
+        console.log('system Iterations:', system);
     },
 };
