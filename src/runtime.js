@@ -40,5 +40,5 @@ module.exports = {
         }
         console.log(`clocktime: ${clockTime} ms`);
         console.log('system Iteration:', system);
-    }
-}
+    },
+};
