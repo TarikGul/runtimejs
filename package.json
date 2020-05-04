@@ -11,5 +11,8 @@
     "memory"
   ],
   "author": "Tarik Gul",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.0"
+  }
 }
