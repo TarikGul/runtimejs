@@ -20,7 +20,7 @@ module.exports = {
         setTimeout(() => {
             let end = new Date().getTime();
             console.log('start:', start);
-            console.log('end:', end)
+            console.log('end:', end);
             console.log('system runtime:', end - start, 'ms');
         }, 0)
         let end = start;
