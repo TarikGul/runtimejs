@@ -46,9 +46,9 @@ function populateArray(n) {
 }
 
 
-const randomArray = populateArray(400000);
+const randomArray = populateArray(200000);
 // console.log(randomArray)
-// console.log(memory.memoryUsage(mergeSort(randomArray)))
+console.log(memory.memoryUsage(() => mergeSort(randomArray)))
 console.log(runtime.executionTime(() => mergeSort(randomArray)))
 // console.log(runtime.systemRuntime(100))
 // console.log(mergeSort(randomArray));
